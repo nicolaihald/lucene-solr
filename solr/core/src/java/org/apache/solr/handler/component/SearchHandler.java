@@ -51,9 +51,9 @@ public class SearchHandler extends RequestHandlerBase implements SolrCoreAware ,
   static final String INIT_LAST_COMPONENTS = "last-components";
 
 
-  
 
-  
+
+
   protected static Logger log = LoggerFactory.getLogger(SearchHandler.class);
 
   protected List<SearchComponent> components = null;
@@ -157,14 +157,20 @@ public class SearchHandler extends RequestHandlerBase implements SolrCoreAware ,
   public List<SearchComponent> getComponents() {
     return components;
   }
-  
+
 
   @Override
-  public void handleRequestBody(SolrQueryRequest req, SolrQueryResponse rsp) throws Exception
+  public void handleRequestBody(SolrQueryRequest req, SolrQueryResponse rsp) throws Exception {
+    ResponseBuilder rb = new ResponseBuilder(req, rsp, components);
+    handleRequestBody(req, rsp, components, rb);
+  }
+
+
+  public void handleRequestBody(SolrQueryRequest req, SolrQueryResponse rsp, List<SearchComponent> components, ResponseBuilder rb) throws Exception
   {
     // int sleep = req.getParams().getInt("sleep",0);
     // if (sleep > 0) {log.error("SLEEPING for " + sleep);  Thread.sleep(sleep);}
-    ResponseBuilder rb = new ResponseBuilder(req, rsp, components);
+
     if (rb.requestInfo != null) {
       rb.requestInfo.setResponseBuilder(rb);
     }
@@ -286,12 +292,12 @@ public class SearchHandler extends RequestHandlerBase implements SolrCoreAware ,
           // this loop)
           boolean tolerant = rb.req.getParams().getBool(ShardParams.SHARDS_TOLERANT, false);
           while (rb.outgoing.size() == 0) {
-            ShardResponse srsp = tolerant ? 
+            ShardResponse srsp = tolerant ?
                 shardHandler1.takeCompletedIncludingErrors():
                 shardHandler1.takeCompletedOrError();
             if (srsp == null) break;  // no more requests to wait for
 
-            // Was there an exception?  
+            // Was there an exception?
             if (srsp.getException() != null) {
               // If things are not tolerant, abort everything and rethrow
               if(!tolerant) {
