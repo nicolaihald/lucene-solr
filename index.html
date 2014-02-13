@@ -1,51 +1,78 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Lucene-solr-multi-request-handler : RequestHandler to run multiple queries in a batch (SOLR-1093)" />
 
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Lucene-solr-multi-request-handler by nicolaihald</title>
+    <title>Lucene-solr-multi-request-handler</title>
   </head>
 
   <body>
 
-    <header>
-      <div class="container">
-        <h1>Lucene-solr-multi-request-handler</h1>
-        <h2>Adds RequestHandler to run multiple queries in a batch (SOLR-1093)</h2>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/nicolaihald/lucene-solr-multi-request-handler">View on GitHub</a>
 
-        <section id="downloads">
-          <a href="https://github.com/nicolaihald/lucene-solr-multi-request-handler/zipball/master" class="btn">Download as .zip</a>
-          <a href="https://github.com/nicolaihald/lucene-solr-multi-request-handler/tarball/master" class="btn">Download as .tar.gz</a>
-          <a href="https://github.com/nicolaihald/lucene-solr-multi-request-handler" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
-        </section>
-      </div>
-    </header>
+          <h1 id="project_title">Lucene-solr-multi-request-handler</h1>
+          <h2 id="project_tagline">RequestHandler to run multiple queries in a batch (SOLR-1093)</h2>
 
-    <div class="container">
-      <section id="main_content">
-        <p>Apache Lucene/Solr</p>
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/nicolaihald/lucene-solr-multi-request-handler/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/nicolaihald/lucene-solr-multi-request-handler/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
 
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>
+<a name="well-whats-it-all-about" class="anchor" href="#well-whats-it-all-about"><span class="octicon octicon-link"></span></a>Well, what's it all about?</h2>
+
+<p>A RequestHandler to run multiple queries in a batch. Please checkout <a href="https://issues.apache.org/jira/browse/SOLR-1093?focusedCommentId=13435940&amp;page=com.atlassian.jira.plugin.system.issuetabpanels:comment-tabpanel#comment-13435940">SOLR-1093</a> for more specific details on the implementation. All credits goes to Karthick Duraisamy Soundararaj for the patch. </p>
+
+<blockquote>
+<p><strong>Usage:</strong> 
+To pass a parameter an individual query, it should be prefixed with the query number
+Eg. <code>1.q=query1&amp;2.q=query2...</code>
+To pass a parameter to all queries, the prefix shouldn’t be specified:
+Eg. <code>count=2&amp;query="common_query"&amp;1.mm=3&amp;2.mm=2...</code></p>
+</blockquote>
+
+<hr><p>Checkout the <a href="https://github.com/nicolaihald/lucene-solr-multi-request-handler/wiki/Instructions">github wiki</a> where i've added a few more instructions.</p>
+
+<h3>
+<a name="apache-lucenesolr-docs" class="anchor" href="#apache-lucenesolr-docs"><span class="octicon octicon-link"></span></a>Apache Lucene/Solr Docs</h3>
+
+<hr><blockquote>
 <p>lucene/ is a search engine library
 solr/ is a search engine server that uses lucene</p>
 
-<p>To compile the sources run 'ant compile'
-To run all the tests run 'ant test'
-To setup your ide run 'ant idea' or 'ant eclipse'
-For Maven info, see dev-tools/maven/README.maven.</p>
+<p>To compile the sources run <strong>ant compile</strong><br>
+To run all the tests run <strong>ant test</strong><br>
+To setup your ide run <strong>ant idea</strong> or <strong>ant eclipse</strong><br>
+For Maven info, see dev-tools/maven/README.maven.   </p>
 
 <p>For more information on how to contribute see:
-<a href="http://wiki.apache.org/lucene-java/HowToContribute">http://wiki.apache.org/lucene-java/HowToContribute</a>
 <a href="http://wiki.apache.org/solr/HowToContribute">http://wiki.apache.org/solr/HowToContribute</a></p>
-
-<hr><p>Checkout the wiki </p>
+</blockquote>
       </section>
     </div>
 
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Lucene-solr-multi-request-handler maintained by <a href="https://github.com/nicolaihald">nicolaihald</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
     
+
   </body>
 </html>
